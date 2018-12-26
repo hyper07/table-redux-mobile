@@ -4,8 +4,8 @@ import { getPageNumber, setPageNumber, Tips, getData } from "modules/data";
 import { ApiActions } from 'store/actionCreators';
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import "./WebContainer.css";
-
+//import "./WebContainer.css";
+import "./WebContainer.scss";
 
 class WebContainer extends Component {
   constructor() {

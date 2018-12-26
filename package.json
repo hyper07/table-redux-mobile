@@ -30,9 +30,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "devDependencies": {
-    "react-scripts": "0.9.5"
-  },
+  "devDependencies": {},
   "main": "index.js",
   "description": "Example for React Table, Promise API, Redux",
   "author": "Kibaek Kim",
@@ -42,5 +40,13 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyper07/table-redux-mobile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hyper07/table-redux-mobile/issues"
+  },
+  "homepage": "https://github.com/hyper07/table-redux-mobile#readme"
 }
