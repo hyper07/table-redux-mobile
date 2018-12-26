@@ -8,7 +8,7 @@
 - LIfeCycle API example
 - Sorting and Filtering example
 - Redux and middleware example
-- CSS & SCSS examples
+- CSS & SCSS examples(Resonsive)
 - Add data and get data from store
 
 
