@@ -15,9 +15,6 @@ class AnimeInfo extends Component {
     name: '',
     role: ''
   }
-  
-  // input 에서 onChange 이벤트가 발생 될 때
-  // 호출되는 함수입니다
  
   render() {
     //console.log('render AnimeInfo ' + this.props.info.mal_id);
