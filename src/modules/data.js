@@ -496,15 +496,11 @@ export function makeData(len = 35) {
   });
 }
 
-export function useDummyData() {
-  return dummyData.map(x => x)
-}
+export function useDummyData() {return dummyData.map(x => x);}
 export const getPageNumber = () => pageNumber;
 export const setPageNumber = (number) => pageNumber=number;
 export const getData = () => loadedData.length > 0 ? loadedData : useDummyData();
-export const setData = (newData) => {
-  loadedData= loadedData.concat(newData);
-}
+export const setData = (newData) => {loadedData= loadedData.concat(newData);}
 export const Tips = () =>
   <div style={{ textAlign: "center" }}>
     <em>Tip: Hold shift when sorting to multi-sort!</em>

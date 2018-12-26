@@ -1,29 +1,24 @@
 $background: #f1f3f5;
-$bgsortbtn: #c7c7c7;
 
-@mixin height-calc($p:null) {
+
+@mixin height-calc($p) {
   @if ($p == "mobile") {
-    height: -webkit-calc(#{100vh} - 80px);
-    height: -moz-calc(#{100vh} - 80px);
-    height: calc(#{100vh} - 80px);
+    @return calc(#{100vh} - 80px);
   } @else {
-    height: -webkit-calc(#{90vh} - 50px);
-    height: -moz-calc(#{90vh} - 50px);
-    height: calc(#{90vh} - 50px);
+    @return  calc(#{90vh} - 50px);
   }
   
 }
 
-
 .app-template {
   flex: 1;
-  //padding: 1rem;
+
   .app-template {
     height: 100vh;
     display: flex;
   }
 
-  .mobile {
+  .mobile {  // for mobile layout style
     background:$background;
     max-width: 800px;
     margin: auto;
@@ -84,13 +79,13 @@ $bgsortbtn: #c7c7c7;
     .content {
       overflow-y:scroll;
       max-height:100%;
-      @include height-calc("mobile");
+      height: height-calc("mobile");
       margin-top:30px;
       margin-bottom:50px;
     }
   }
 
-  .tablet { 
+  .tablet {  // for tablet layout style
     background: $background;
     max-width :1200px;
     width:100%;
@@ -104,36 +99,20 @@ $bgsortbtn: #c7c7c7;
       position: absolute;
       left: 0px;
       text-align:center;
-      button {
-        width:100px;
-        height:30px;
-        float:right;
-        font-size:18px;
-        margin-right:15px;
-        background:$bgsortbtn;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-      }
-      .name{
-        background:#a0a4a9 !important;
-      }
-      .role{
-        background:#a0a4a9 !important;
-      }
     }
     .searchField {
-      width:50%;
-      float:left;
-      margin-left:10px;
+      width:90%;
       font-size:24px;
       -webkit-border-radius: 50px;
       -moz-border-radius: 50px;
       border-radius: 50px;
     }
-
-
-
+    .btnNameSort {
+     
+    }
+    .btnRoleSort {
+     
+    }
     .single {
       float:left;
       max-width:280px;
@@ -173,7 +152,7 @@ $bgsortbtn: #c7c7c7;
     .content {
       overflow-y:scroll;
       max-height:100%;
-      @include height-calc("tablet");
+      height: height-calc("tablet");
       margin-top:50px;
       margin-bottom:20px;
     }

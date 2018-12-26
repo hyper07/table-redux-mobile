@@ -3,23 +3,22 @@ import React, { Component } from 'react';
 
 class AnimeInfo extends Component {
 
-  
-  static defaultProps = {
-    info: []
+  // set blank info as default props for some case
+  // such as when i forget to set props or specially have to empty props manually
+
+  static defaultProps = { 
+    info: [{
+      mal_id:0,
+      url: '',
+      image_url: '',
+      name: '',
+      role: ''
+    }],
+    key:0
   }
 
-  state = {
-    mal_id:0,
-    url: '',
-    image_url: '',
-    name: '',
-    role: ''
-  }
- 
   render() {
-    //console.log('render AnimeInfo ' + this.props.info.mal_id);
-    //const { editing } = this.state;
-   
+
     const {
         mal_id,
         url,

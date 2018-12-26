@@ -7,11 +7,10 @@ import { ApiActions, LoadmoreActions } from 'store/actionCreators'; //binded on 
 import { BeatLoader } from 'react-spinners';
 
 
-
 class MobileContainer extends Component {
   
   state = {
-    //loadedPage:this.loadingprops.loadedPage,
+
     information: [],
     keyword: '',
     color: '#36D7B7',
@@ -22,17 +21,11 @@ class MobileContainer extends Component {
 
   componentDidMount() {
     //console.log("Mobile view mounted");
-     if( getPageNumber()===0 )
-    {
-      this.getPost(1);
-    }
-    else{
-      this.setState({information: getData(),})
-    }
+    if( getPageNumber()===0 ){this.getPost(1); } // way to call api by call function directly
+    else{this.setState({information: getData()}) }
   }
 
   componentWillReceiveProps(nextProps) {
-
    if(this.props.loadedPage !== nextProps.loadedPage) {
       this.getPost(nextProps.loadedPage);
     }
@@ -73,38 +66,36 @@ class MobileContainer extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     if ( nextProps.info === this.props.info
-        && nextState.keyword === this.state.keyword
-        && nextState.information === this.state.information
-        && nextProps.loading === this.props.loading
-        && nextProps.error === this.props.error
+          && nextState.keyword === this.state.keyword
+          && nextState.information === this.state.information
+          && nextProps.loading === this.props.loading
+          && nextProps.error === this.props.error
         ) {
       return false;
     }
-    else{
-    
-      return true;
-    }
-
-    
+    return true;
   }
 
   handleChange = (e) => {
-    this.setState({
-      keyword: e.target.value,
+    //e.preventDefault(); // if you have to prevent critical event like refresh 
+    
+    //this.props.onCreate(e.target) // if you have to send data to parent (App) 
+
+     this.setState({
+      [e.target.name]: e.target.value, // set state with event target name
     });
   }
-
-
+  
   render() {
 
     const { error, loading } = this.props;
-    const { information, keyword,apiStatus } = this.state;
+    const { information, keyword, apiStatus } = this.state;
     const filteredList = information.filter(
-      info => new RegExp(keyword, 'i').test(info.name)
-        ).sort((a,b) => {
-       return a.name.toUpperCase() > b.name.toUpperCase() ? 1:a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 0;
-      }
-    );
+                            info => new RegExp(keyword, 'i').test(info.name)
+                          ).sort((a,b) => {
+                              return a.name.toUpperCase() > b.name.toUpperCase() ? 1:a.name.toUpperCase() < b.name.toUpperCase() ? -1 : 0;
+                            }
+                          );
      
     return (
       <React.Fragment>
@@ -114,13 +105,12 @@ class MobileContainer extends Component {
               onChange={this.handleChange}
               value={keyword}
               className="searchField"
+              name="keyword" // for eventhandler with name
             />
         </div>
         <div className="content">
           <Animations
             data={filteredList}
-            //list={AnimeInfoList}
-
           />
         </div>
         <div className="divLoadmore">
@@ -152,10 +142,21 @@ export default connect(
 )(MobileContainer);
 
 
+/*
 //import * as loadmoreActions from 'modules/loadmore';
 //import * as apiActions from 'modules/api';
-//(dispatch) => ({
-//  ApiActions: bindActionCreators(apiActions, dispatch),
-//  LoadmoreActions: bindActionCreators(loadmoreActions, dispatch),
-//})
-//
+
+export default connect(
+  (state) => ({
+      loadedPage: state.loadmore,
+      information: state.information,
+      api:state.api.data,
+      loading: state.pender.pending['GET_POST'],
+      error: state.pender.failure['GET_POST']
+  }),
+  (dispatch) => ({
+      ApiActions: bindActionCreators(apiActions, dispatch),
+      LoadmoreActions: bindActionCreators(loadmoreActions, dispatch),
+    })
+)(MobileContainer);
+*/

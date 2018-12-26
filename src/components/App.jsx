@@ -12,6 +12,10 @@ class App extends Component {
     windowWidth: window.innerWidth
   }
 
+  handleCreate = (data) => {
+    console.log(data); // if App parent get data from chilren as props print out on console terminal
+  }
+
   componentDidMount() {
     this.handleResize();
     window.addEventListener('resize', this.handleResize)
@@ -20,27 +24,36 @@ class App extends Component {
 
   handleResize = () => {
     const {windowWidth} = this.state
-    const {innerWidth,innerHeight}=window
-    if((innerWidth>=1400&&windowWidth<1400)
-      || (innerWidth>=700&&(windowWidth<700||windowWidth>1400))
-      || (innerWidth<700&&windowWidth>700))
+    const {innerWidth, innerHeight} = window
+    if((innerWidth >= 1400 && windowWidth < 1400)
+      || (innerWidth >= 700&& (windowWidth < 700 || windowWidth > 1400))
+      || (innerWidth < 700 && windowWidth > 700))
     {
       this.setState({ 
-        windowHeight: innerHeight,
-        windowWidth:innerWidth
+        windowHeight : innerHeight,
+        windowWidth : innerWidth
       })
     }
        
   };
-   
+  
+  componentDidCatch(error, info) {
+    this.setState({
+      error: true
+    });
+  }
+
   render() {
+
+    if (this.state.error) alert("Error Occurred!. Please try again.");
+
     const {windowWidth} = this.state
     return (
       <AppTemplate
         container={
           windowWidth>1400?<WebContainer />
           :windowWidth>700?<TabletContainer />
-          :<MobileContainer />
+          :<MobileContainer onCreate={this.handleCreate}/>
         }
         layout={
           windowWidth>1400?"web"

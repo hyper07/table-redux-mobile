@@ -8,8 +8,9 @@ import "react-table/react-table.css";
 import "./WebContainer.scss";
 
 class WebContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       information: [],
       keyword: '',
@@ -18,13 +19,12 @@ class WebContainer extends Component {
       pageSize: 20,
       apiStatus:'',
       apiStatusText:'',
-      //getPageNumber: getPageNumber,
 
     };
   }
  
   componentDidMount() {
-    //window.addEventListener'rt-tbody', this.onScroll, false);
+
     if( getPageNumber()===0 ) this.getPost(1);
     else this.setState({information: getData()});
    
@@ -34,7 +34,6 @@ class WebContainer extends Component {
   }
 
   componentWillUnmount() {
-    //window.removeEventListener('rt-tbody', this.onScroll, false);
     
     document
       .querySelector(".rt-tbody")
@@ -81,9 +80,8 @@ class WebContainer extends Component {
           }
         );
         if (error.response) {
-     
+          console.log(error.response);
         } else if (error.request) {
-         
             console.log(error.request);
         } else {
             // Something happened in setting up the request that triggered an Error
