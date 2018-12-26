@@ -6,10 +6,14 @@
     "axios": "^0.18.0",
     "graphql": "^14.0.2",
     "immutable": "^4.0.0-rc.12",
+    "namor": "1.0.1",
+    "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.1",
+    "react-spinners": "^0.4.8",
+    "react-table": "^6.8.6",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
     "redux-logger": "^3.0.6",
@@ -20,7 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,6 +33,10 @@
   "devDependencies": {
     "react-scripts": "0.9.5"
   },
+  "main": "index.js",
+  "description": "Example for React Table, Promise API, Redux",
+  "author": "Kibaek Kim",
+  "license": "MIT",
   "browserslist": [
     ">0.2%",
     "not dead",
