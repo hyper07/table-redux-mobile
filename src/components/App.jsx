@@ -53,7 +53,7 @@ class App extends Component {
         container={
           windowWidth>1400?<WebContainer />
           :windowWidth>700?<TabletContainer />
-          :<MobileContainer onCreate={this.handleCreate}/>
+          :<MobileContainer onCreate={this.handleCreate}/> // set props for mobile container to get data 
         }
         layout={
           windowWidth>1400?"web"
