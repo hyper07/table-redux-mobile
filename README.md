@@ -1,4 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## Features
+- Reusable component
+- Props from parent and send data to parent 
+- State and functions
+- Promise API example
+- LIfeCycle API example
+- Sorting and Filtering example
+- Redux and middleware example
+- CSS & SCSS examples
+- Add data and get data from store
+
+
+## Demo
+![GitHub Logo](/demo.gif)
+
 
 ## Available Scripts
 
