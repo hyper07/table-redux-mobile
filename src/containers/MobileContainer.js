@@ -18,6 +18,7 @@ class MobileContainer extends Component {
     apiStatus:'',
     apiStatusText:'',
   }  
+  
 
   componentDidMount() {
     //console.log("Mobile view mounted");
@@ -87,7 +88,7 @@ class MobileContainer extends Component {
   }
   
   render() {
-
+    console.log(this.props);
     const { error, loading } = this.props;
     const { information, keyword, apiStatus } = this.state;
     const filteredList = information.filter(
@@ -111,20 +112,21 @@ class MobileContainer extends Component {
         <div className="content">
           <Animations
             data={filteredList}
+            zoom={this.props.zoom}
           />
         </div>
         <div className="divLoadmore">
         { 
-            loading 
-            ? <BeatLoader
-                color={'#123abc'} 
-                loading={this.state.loading} 
-              /> 
-            : error&&apiStatus!==404 
-              ? <h1>All Loaded.</h1>
-              : <button onClick={LoadmoreActions.loadmore}>Load More</button>
-          }
-          </div>
+          loading 
+          ? <BeatLoader
+              color={'#123abc'} 
+              loading={this.state.loading} 
+            /> 
+          : error&&apiStatus!==404 
+            ? <h1>All Loaded.</h1>
+            : <button onClick={LoadmoreActions.loadmore}>Load More</button>
+        }
+        </div>
       </React.Fragment>
     );
   }

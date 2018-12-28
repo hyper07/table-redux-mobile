@@ -121,6 +121,7 @@ class TabletContainer extends Component {
         <div className="content">
           <Animations
             data={filteredList}
+            zoom={this.props.zoom}
             //list={AnimeInfoList}
 
           />

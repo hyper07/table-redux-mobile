@@ -16,6 +16,12 @@ class AnimeInfo extends Component {
     }],
     key:0
   }
+  handleClick = (e) => {
+    
+    e.preventDefault(); // if you have to prevent critical event like refresh 
+    this.props.zoom(e.target) // if you have to send data to parent (App) 
+
+  }
 
   render() {
 
@@ -29,7 +35,7 @@ class AnimeInfo extends Component {
 
     return (
       <div className="single">
-        <div className="img"><img src={image_url} className="singleImage" alt={name}/></div>
+        <div className="img"><img src={image_url} className="singleImage" alt={name} onClick={this.handleClick} /></div>
         <div className="name">{name}</div>
         <div className="url"><a href={url} target={"Anime"+mal_id}>Link</a></div>
         <div className="role">{role}</div>

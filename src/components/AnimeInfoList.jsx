@@ -15,6 +15,7 @@ class AnimeInfoList extends Component {
       <AnimeInfo 
       key={info.mal_id} 
       info={info}
+      zoom={this.props.zoom}
       />)
     );
 
