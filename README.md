@@ -10,6 +10,7 @@
 - Redux and middleware example
 - CSS & SCSS examples(Responsive)
 - Add data and get data from store
+- Image Zoom
 
 
 ## Demo
