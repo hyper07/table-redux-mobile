@@ -51,7 +51,7 @@ class App extends Component {
         
     var modal = document.getElementById('myModal');
     //var img = document.getElementById('myImg');
-    var modalImg = document.getElementById("img01");
+    var modalImg = document.getElementById("imgPopup");
     var captionText = document.getElementById("caption");
     modal.style.display = "block";
     modalImg.src = data.src;
@@ -84,8 +84,8 @@ class App extends Component {
           }
         />
         <div id="myModal" className="modal">
-          <span className="close" onClick={this.closePopup}>&times;</span>
-          <img className="modal-content" id="img01" alt="popup" />
+          <span className="btnClose" onClick={this.closePopup}>&times;</span>
+          <img className="modal-content" id="imgPopup" alt="popup" />
           <div id="caption"></div>
         </div>
     </React.Fragment>
