@@ -220,6 +220,7 @@ $bgsortbtn: #c7c7c7;
   .singleImage{
     width: 230px;
     height: 350px;
+    cursor: pointer;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -231,7 +232,6 @@ $bgsortbtn: #c7c7c7;
 
 #myImg {
   border-radius: 5px;
-  //cursor: pointer;
   transition: 0.3s;
 }
 
